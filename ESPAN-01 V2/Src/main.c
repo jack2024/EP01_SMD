@@ -1547,7 +1547,7 @@ void Read_input(void)
 		if (AutoTestFlag)  // TEST FROM MODBUS
 		{
 			MCP23s17_Ip_dat = ~MCP23s17_Ip_dat;
-			//  jj
+			 //  jj
 			if(MCP23s17_Ip_dat == 0)MCP23s17_Ip_dat = 0xFF;
 		}
 		if(SPI_Status == HAL_OK)
@@ -1563,7 +1563,7 @@ void Read_input(void)
 	
 	///////////////---Anal Fault---//////////////////
 	
-	for(uint8_t i = 0; i <= NoOfPoint; i++)
+	for(uint8_t i = 0; i < NoOfPoint; i++)
 	{
 		if(fault[i].InputType == NO)
 		{
@@ -1737,6 +1737,7 @@ void Read_input(void)
 	
 	if(NoOfPoint >= 8)
 	{
+		Input1_8 =0;
 		for(int8_t i = 7; i >= 0; --i)
 		{
 			Input1_8 = Input1_8 | fault[i].Input;
@@ -1748,7 +1749,8 @@ void Read_input(void)
 		
 	}
 	if(NoOfPoint >= 16)
-    {
+  {
+		Input9_16 =0;
 		for(int8_t i = 15; i >= 8; --i)
 		{
 			Input9_16 = Input9_16 | fault[i].Input;
@@ -1758,10 +1760,10 @@ void Read_input(void)
 		}
 		Input9_16 = ~Input9_16; 
 		
-
 	}
 	if(NoOfPoint >= 24)
-    {
+  {
+		Input17_24 =0;
 		for(int8_t i = 23; i >= 16; --i)
 		{
 			Input17_24 = Input17_24 | fault[i].Input;
@@ -1773,7 +1775,8 @@ void Read_input(void)
 
 	}
 	if(NoOfPoint >= 32)
-    {
+  {
+		Input25_32 =0;
 		for(int8_t i = 31; i >= 24; --i)
 		{
 			Input25_32 = Input25_32 | fault[i].Input;
@@ -1785,7 +1788,8 @@ void Read_input(void)
 
 	}
 	if(NoOfPoint >= 40)
-    {
+  {
+		Input33_40 =0;
 		for(int8_t i = 39; i >= 32; --i)
 		{
 			Input33_40 = Input33_40 | fault[i].Input;
@@ -1797,7 +1801,8 @@ void Read_input(void)
 
 	}
 	if(NoOfPoint >= 48)
-    {
+  {
+		Input41_48 =0;
 		for(int8_t i = 47; i >= 40; --i)
 		{
 			Input41_48 = Input41_48 | fault[i].Input;
@@ -1808,7 +1813,8 @@ void Read_input(void)
 		Input41_48 = ~Input41_48; 
 	}
 	if(NoOfPoint >= 56)
-    {
+  {
+		Input49_56 =0;
 		for(int8_t i = 55; i >= 48; --i)
 		{
 			Input49_56 = Input49_56 | fault[i].Input;
@@ -1819,7 +1825,8 @@ void Read_input(void)
 		Input49_56 = ~Input49_56; 
 	}
 	if(NoOfPoint >= 64)
-    {
+  {
+		Input57_64 =0;
 		for(int8_t i = 63; i >= 56; --i)
 		{
 			Input57_64 = Input57_64 | fault[i].Input;
